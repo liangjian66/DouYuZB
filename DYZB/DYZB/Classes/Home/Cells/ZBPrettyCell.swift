@@ -1,5 +1,5 @@
 //
-//  ZBAnchorCollectionCCell.swift
+//  ZBPrettyCell.swift
 //  DYZB
 //
 //  Created by hywin on 2018/12/5.
@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import Kingfisher
-import SnapKit
-class ZBAnchorCollectionCCell: UICollectionViewCell {
+
+class ZBPrettyCell: UICollectionViewCell {
     private let iconImageView       = UIImageView()
     private let onlineBtn       = UIButton()
-
+    
     private let nickNameLabel       = UILabel()
     
-    private let roomNameLabel       = UILabel()
+    private let cityBtn       = UIButton()
     var anchor : AnchorModel? {
         didSet {
             // 0.校验模型是否有值
@@ -37,24 +36,25 @@ class ZBAnchorCollectionCCell: UICollectionViewCell {
             guard let iconURL = URL(string: anchor.vertical_src) else { return }
             iconImageView.kf.setImage(with: iconURL)
             
-            // 2.房间名称
-            roomNameLabel.text = anchor.room_name
-        }
+            // 2.所在的城市
+            cityBtn.setTitle(anchor.anchor_city, for: UIControlState())        }
     }
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.contentView.addSubview(iconImageView)
-        nickNameLabel.textColor = UIColor.white
+        nickNameLabel.textColor = UIColor.gray
         nickNameLabel.font = UIFont.systemFont(ofSize: 13)
-        iconImageView.addSubview(nickNameLabel)
+        self.contentView.addSubview(nickNameLabel)
         onlineBtn.setTitleColor(UIColor.white, for: .normal)
         onlineBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         iconImageView.addSubview(onlineBtn)
-        roomNameLabel.textColor = UIColor.lightGray;
-        roomNameLabel.font = UIFont.systemFont(ofSize: 13)
-        self.contentView.addSubview(roomNameLabel)
+        
+        cityBtn.setTitleColor(UIColor.gray, for: .normal)
+        cityBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        
+        self.contentView.addSubview(cityBtn)
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -71,32 +71,28 @@ class ZBAnchorCollectionCCell: UICollectionViewCell {
             mk.top.equalTo(self.contentView.snp.top).offset(0)
             mk.left.equalTo(self.contentView.snp.left).offset(0)
             mk.right.equalTo(self.contentView.snp.right).offset(0)
-            mk.bottom.equalTo(self.contentView.snp.bottom).offset(-20)
+            mk.bottom.equalTo(self.contentView.snp.bottom).offset(-40)
             
         }
         
         nickNameLabel.snp.makeConstraints { (mk) in
-            mk.left.equalTo(iconImageView.snp.left).offset(10)
-            mk.bottom.equalTo(iconImageView.snp.bottom).offset(-10)
+            mk.left.equalTo(self.contentView.snp.left).offset(10)
+            mk.top.equalTo(iconImageView.snp.bottom).offset(3)
             
         }
         
         onlineBtn.snp.makeConstraints { (mk) in
-       
+            
             mk.right.equalTo(iconImageView.snp.right).offset(-10)
-            mk.bottom.equalTo(iconImageView.snp.bottom).offset(-10)
+            mk.top.equalTo(iconImageView.snp.top).offset(10)
             
         }
         
-        roomNameLabel.snp.makeConstraints { (mk) in
-            mk.top.equalTo(iconImageView.snp.bottom).offset(0)
-            mk.left.equalTo(self.contentView.snp.left).offset(10)
-            mk.right.equalTo(self.contentView.snp.right).offset(0)
-            mk.bottom.equalTo(self.contentView.snp.bottom).offset(0)
+        cityBtn.snp.makeConstraints { (mk) in
+            mk.top.equalTo(nickNameLabel.snp.bottom).offset(2)
+            mk.left.equalTo(iconImageView.snp.left).offset(10)
             
         }
         
     }
-    
-    
 }

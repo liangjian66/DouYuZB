@@ -26,6 +26,7 @@
 		886FDF3F21B7B37B009FDF0F /* ZBAnchorCollectionCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF3E21B7B37B009FDF0F /* ZBAnchorCollectionCCell.swift */; };
 		886FDF4121B7B623009FDF0F /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4021B7B623009FDF0F /* AnchorModel.swift */; };
 		886FDF4321B7BBFC009FDF0F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4221B7BBFC009FDF0F /* NetworkTools.swift */; };
+		886FDF4521B7CAE1009FDF0F /* ZBPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4421B7CAE1009FDF0F /* ZBPrettyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		886FDF3E21B7B37B009FDF0F /* ZBAnchorCollectionCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBAnchorCollectionCCell.swift; sourceTree = "<group>"; };
 		886FDF4021B7B623009FDF0F /* AnchorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		886FDF4221B7BBFC009FDF0F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		886FDF4421B7CAE1009FDF0F /* ZBPrettyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBPrettyCell.swift; sourceTree = "<group>"; };
 		B95931CE22526D8D2253C3D0 /* Pods-DYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.debug.xcconfig"; sourceTree = "<group>"; };
 		FCAD0488B6E4A44743D7235F /* Pods-DYZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				886FDF3E21B7B37B009FDF0F /* ZBAnchorCollectionCCell.swift */,
+				886FDF4421B7CAE1009FDF0F /* ZBPrettyCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				886FDF3D21B7B0F4009FDF0F /* Common.swift in Sources */,
 				886FDF3321B76D9F009FDF0F /* NSDate-Extension.swift in Sources */,
 				886FDF3721B7A0BC009FDF0F /* PageContentView.swift in Sources */,
+				886FDF4521B7CAE1009FDF0F /* ZBPrettyCell.swift in Sources */,
 				886FDF2221B76717009FDF0F /* ZBBaseViewController.swift in Sources */,
 				886FDF3B21B7B0A7009FDF0F /* RecommendViewController.swift in Sources */,
 				886FDF4321B7BBFC009FDF0F /* NetworkTools.swift in Sources */,

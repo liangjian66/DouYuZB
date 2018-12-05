@@ -26,7 +26,15 @@ let kPrettyItemH = kNormalItemW * 4 / 3
 
 class BaseAnchorViewController: UIViewController {
 
+    var DataModels = [Array<Any>]()
+    
     var AnchorModels = [AnchorModel]()
+    
+    
+    var PrettyModels = [AnchorModel]()
+
+
+    
     lazy var collectionView : UICollectionView = {[unowned self] in
         // 1.创建布局
         let layout = UICollectionViewFlowLayout()
@@ -44,6 +52,10 @@ class BaseAnchorViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         collectionView.register(ZBAnchorCollectionCCell.self, forCellWithReuseIdentifier: kNormalCellID)
+        
+        collectionView.register(ZBPrettyCell.self, forCellWithReuseIdentifier: kPrettyCellID)
+        
+        
         
         return collectionView
         }()
@@ -83,36 +95,88 @@ extension BaseAnchorViewController {
             print(self.AnchorModels)
             self.collectionView.reloadData()
 
-            // 3.遍历字典,并且转成模型对象
-            // 3.1.设置组的属性
-//            self.bigDataGroup.tag_name = "热门"
-//            self.bigDataGroup.icon_name = "home_header_hot"
-//
-//            // 3.2.获取主播数据
-//            for dict in dataArray {
-//                let anchor = AnchorModel(dict: dict)
-//                self.bigDataGroup.anchors.append(anchor)
-//            }
+         self.DataModels.insert(self.AnchorModels, at: 0)
             
            
         }
+        
+        
+        // 1.定义参数
+        let parameters = ["limit" : "4", "offset" : "0", "time" : Date.getCurrentTime()]
+        
+        
+        NetworkTools.requestData(.get, URLString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", parameters: parameters) { (result) in
+            // 1.将result转成字典类型
+            guard let resultDict = result as? [String : NSObject] else { return }
+            
+            // 2.根据data该key,获取数组
+            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            
+            // 3.遍历字典,并且转成模型对象
+            // 3.1.设置组的属性
+//            self.prettyGroup.tag_name = "颜值"
+//            self.prettyGroup.icon_name = "home_header_phone"
+            
+            // 3.2.获取主播数据
+//            for dict in dataArray {
+//                let anchor = AnchorModel(dict: dict)
+//                self.prettyGroup.anchors.append(anchor)
+//            }
+            
+            // 3.3.离开组
+            
+            
+            self.PrettyModels += dataArray.compactMap({ AnchorModel.deserialize(from: $0 as? Dictionary) })
+            
+            print(self.PrettyModels)
+            self.collectionView.reloadData()
+            
+            self.DataModels.append(self.PrettyModels)
+            
+            
+        }
+        
+        
+        
     }
 }
 
 extension  BaseAnchorViewController : UICollectionViewDataSource{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return DataModels.count
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return AnchorModels.count
+        let tempARR  =  DataModels[section] as! [Any]
+        return  tempARR.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! ZBAnchorCollectionCCell
         
-        // 2.给cell设置数据
-//        cell.anchor = baseVM.anchorGroups[indexPath.section].anchors[indexPath.item]
-        cell.anchor = AnchorModels[indexPath.item]
         
-        return cell
+        
+        
+        
+        if indexPath.section == 1 {
+            // 1.取出PrettyCell
+            let prettyCell = collectionView.dequeueReusableCell(withReuseIdentifier: kPrettyCellID, for: indexPath) as! ZBPrettyCell
+            
+            // 2.设置数据
+            prettyCell.anchor = self.DataModels[indexPath.section][indexPath.row] as? AnchorModel
+
+            return prettyCell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kNormalCellID, for: indexPath) as! ZBAnchorCollectionCCell
+            
+            
+            cell.anchor = self.DataModels[indexPath.section][indexPath.row] as? AnchorModel
+            
+            return cell
+        }
+        
+        
+        
     }
     
 }
@@ -124,6 +188,17 @@ extension BaseAnchorViewController : UICollectionViewDelegate {
         print("点击了")
     }
     
+}
+
+extension BaseAnchorViewController : UICollectionViewDelegateFlowLayout {
     
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 1 {
+            return CGSize(width: kNormalItemW, height: kPrettyItemH)
+        }
+        
+        return CGSize(width: kNormalItemW, height: kNormalItemH)
+    }
 }
 
