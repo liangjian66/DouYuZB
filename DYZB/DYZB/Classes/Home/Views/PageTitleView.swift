@@ -68,7 +68,7 @@ extension PageTitleView{
         setupTitleLabels()
         
         // 3.设置底线和滚动的滑块
-//        setupBottomLineAndScrollLine()
+        setupBottomLineAndScrollLine()
     }
     
     fileprivate func setupTitleLabels() {
