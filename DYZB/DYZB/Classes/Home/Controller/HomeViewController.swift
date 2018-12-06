@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         var childVcs = [UIViewController]()
         childVcs.append(BaseAnchorViewController())
         childVcs.append(RecommendViewController())
-        childVcs.append(RecommendViewController())
+        childVcs.append(AmuseViewController())  // 娱乐
         childVcs.append(RecommendViewController())
         
         let contentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentViewController: self)

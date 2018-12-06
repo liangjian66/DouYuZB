@@ -27,6 +27,11 @@
 		886FDF4121B7B623009FDF0F /* AnchorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4021B7B623009FDF0F /* AnchorModel.swift */; };
 		886FDF4321B7BBFC009FDF0F /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4221B7BBFC009FDF0F /* NetworkTools.swift */; };
 		886FDF4521B7CAE1009FDF0F /* ZBPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4421B7CAE1009FDF0F /* ZBPrettyCell.swift */; };
+		886FDF4721B8BFC8009FDF0F /* HomeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4621B8BFC8009FDF0F /* HomeBaseViewController.swift */; };
+		886FDF4921B8C1FB009FDF0F /* AnchorGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4821B8C1FB009FDF0F /* AnchorGroup.swift */; };
+		886FDF4B21B8C999009FDF0F /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4A21B8C999009FDF0F /* BaseViewModel.swift */; };
+		886FDF4D21B8F335009FDF0F /* AmuseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4C21B8F335009FDF0F /* AmuseViewModel.swift */; };
+		886FDF4F21B8F5FF009FDF0F /* AmuseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886FDF4E21B8F5FF009FDF0F /* AmuseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		886FDF4021B7B623009FDF0F /* AnchorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorModel.swift; sourceTree = "<group>"; };
 		886FDF4221B7BBFC009FDF0F /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		886FDF4421B7CAE1009FDF0F /* ZBPrettyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBPrettyCell.swift; sourceTree = "<group>"; };
+		886FDF4621B8BFC8009FDF0F /* HomeBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseViewController.swift; sourceTree = "<group>"; };
+		886FDF4821B8C1FB009FDF0F /* AnchorGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorGroup.swift; sourceTree = "<group>"; };
+		886FDF4A21B8C999009FDF0F /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		886FDF4C21B8F335009FDF0F /* AmuseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewModel.swift; sourceTree = "<group>"; };
+		886FDF4E21B8F5FF009FDF0F /* AmuseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmuseViewController.swift; sourceTree = "<group>"; };
 		B95931CE22526D8D2253C3D0 /* Pods-DYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.debug.xcconfig"; sourceTree = "<group>"; };
 		FCAD0488B6E4A44743D7235F /* Pods-DYZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +186,7 @@
 				886FDF2321B76858009FDF0F /* MyNavigationController.swift */,
 				886FDF2421B76859009FDF0F /* MyTabBarController.swift */,
 				886FDF3821B7B06E009FDF0F /* BaseAnchorViewController.swift */,
+				886FDF4621B8BFC8009FDF0F /* HomeBaseViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			children = (
 				886FDF2B21B768FA009FDF0F /* HomeViewController.swift */,
 				886FDF3A21B7B0A7009FDF0F /* RecommendViewController.swift */,
+				886FDF4E21B8F5FF009FDF0F /* AmuseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,6 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				886FDF4021B7B623009FDF0F /* AnchorModel.swift */,
+				886FDF4821B8C1FB009FDF0F /* AnchorGroup.swift */,
+				886FDF4A21B8C999009FDF0F /* BaseViewModel.swift */,
+				886FDF4C21B8F335009FDF0F /* AmuseViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				886FDF2521B76859009FDF0F /* MyNavigationController.swift in Sources */,
+				886FDF4B21B8C999009FDF0F /* BaseViewModel.swift in Sources */,
 				886FDF4121B7B623009FDF0F /* AnchorModel.swift in Sources */,
 				886FDF3121B76D9F009FDF0F /* UIColor-Extension.swift in Sources */,
 				886FDF3D21B7B0F4009FDF0F /* Common.swift in Sources */,
@@ -387,13 +403,17 @@
 				886FDF2221B76717009FDF0F /* ZBBaseViewController.swift in Sources */,
 				886FDF3B21B7B0A7009FDF0F /* RecommendViewController.swift in Sources */,
 				886FDF4321B7BBFC009FDF0F /* NetworkTools.swift in Sources */,
+				886FDF4721B8BFC8009FDF0F /* HomeBaseViewController.swift in Sources */,
 				886FDF0821B6639D009FDF0F /* AppDelegate.swift in Sources */,
 				886FDF2621B76859009FDF0F /* MyTabBarController.swift in Sources */,
 				886FDF3521B7740E009FDF0F /* PageTitleView.swift in Sources */,
 				886FDF3F21B7B37B009FDF0F /* ZBAnchorCollectionCCell.swift in Sources */,
+				886FDF4D21B8F335009FDF0F /* AmuseViewModel.swift in Sources */,
 				886FDF2C21B768FA009FDF0F /* HomeViewController.swift in Sources */,
 				886FDF3221B76D9F009FDF0F /* UIBarButtonItem-Extension.swift in Sources */,
 				886FDF3921B7B06E009FDF0F /* BaseAnchorViewController.swift in Sources */,
+				886FDF4F21B8F5FF009FDF0F /* AmuseViewController.swift in Sources */,
+				886FDF4921B8C1FB009FDF0F /* AnchorGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
