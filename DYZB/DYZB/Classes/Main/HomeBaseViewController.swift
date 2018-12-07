@@ -10,6 +10,7 @@ import UIKit
 
 
 
+private let kMenuViewH : CGFloat = 200
 
 private let kItemMargin : CGFloat = 10
 private let kHeaderViewH : CGFloat = 50
@@ -56,6 +57,12 @@ class HomeBaseViewController: UIViewController {
         return collectionView
         }()
     
+    // 列表页
+    fileprivate lazy var menuView : AmuseMenuView = {
+        let menuView = AmuseMenuView.init(frame: CGRect(x: 0, y: -kMenuViewH, width: kScreenW, height: kMenuViewH))
+        return menuView
+    }()
+    
     
     
     // MARK: 系统回调
@@ -77,9 +84,12 @@ extension HomeBaseViewController {
         // 1.给父类中内容View的引用进行赋值
 //        contentView = collectionView
         // 2.添加collectionView
+        
+        
         view.addSubview(collectionView)
-        
-        
+        collectionView.addSubview(menuView)
+         collectionView.contentInset = UIEdgeInsets(top: kMenuViewH, left: 0, bottom: 0, right: 0)
+ 
     }
 }
 
@@ -94,13 +104,13 @@ extension HomeBaseViewController {
             
             self.collectionView.reloadData()
             
-            // 2.2.调整数据
-//            var tempGroups = self.amuseVM.anchorGroups
-//            tempGroups.removeFirst()
-//            self.menuView.groups = tempGroups
+            // 2.2.调整数据  菜单列表数据
+            var tempGroups = self.amuseVM.anchorGroups
+            tempGroups.removeFirst()
+            self.menuView.groups = tempGroups
             
             // 3.数据请求完成
-//            self.loadDataFinished()
+//            self.loadDataFinished()  
         }
     }
 }

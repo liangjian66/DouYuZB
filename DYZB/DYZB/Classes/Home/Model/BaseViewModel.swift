@@ -18,6 +18,9 @@ struct anchorDataModel: HandyJSON {
     // 分类名称
     var tag_name : String = ""
     
+    var icon_url : String = ""
+
+    
 }
 
 
