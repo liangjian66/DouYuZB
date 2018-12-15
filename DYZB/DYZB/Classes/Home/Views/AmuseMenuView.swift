@@ -58,6 +58,7 @@ class AmuseMenuView: UIView {
         pageControl.snp.makeConstraints { (mk) in
             mk.centerX.equalTo(self.snp.centerX).offset(0)
             mk.bottom.equalTo(self.snp.bottom).offset(-5)
+            
 //            mk.width.equalTo(45)
 //            mk.height.equalTo(30)
             
@@ -65,6 +66,7 @@ class AmuseMenuView: UIView {
         
         
         self.addSubview(collectionView)
+        collectionView.backgroundColor = UIColor.red
         collectionView.snp.makeConstraints { (mk) in
             mk.top.equalTo(self.snp.top).offset(0)
             mk.left.equalTo(self.snp.left).offset(0)
